@@ -1,5 +1,5 @@
 ---
-- hosts: MK
+- hosts: mk
   become: true
   tasks:
      - name: Run command on remote devices
