@@ -1,0 +1,7 @@
+---
+- hosts: mk
+  become: true
+  tasks:
+     - name: Run command on remote devices
+       community.routeros.command:
+          commands: /system routerboard print
