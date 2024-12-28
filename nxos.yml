@@ -11,7 +11,7 @@
   - name: run show version and check to see if output contains Cisco
     cisco.nxos.nxos_command:
       commands: show version
-    wait_for: result[0] contains Cisco
+      wait_for: result[0] contains Cisco
 
   - name: run multiple commands on remote nodes
     cisco.nxos.nxos_command:
