@@ -5,6 +5,6 @@
   tasks:
 
   - name: run show version and check to see if output contains Cisco
-  cisco.nxos.nxos_command:
-    commands: show version
-    wait_for: result[0] contains Cisco
+    cisco.nxos.nxos_command:
+     commands: show version
+     wait_for: result[0] contains Cisco
