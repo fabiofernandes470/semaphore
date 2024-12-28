@@ -3,7 +3,7 @@
   connection: network_cli
   hosts: switches
   tasks:
-    - name: NXOS_VERSION
+    - name: Obtendo VERSION
       nxos_command:
         commands: show version
       register: show_version
@@ -12,7 +12,7 @@
       debug:
         var: show_version.stdout_lines
         
-    - name: NXOS_INTERFACES
+    - name: Obtendo Interfaces brief
       nxos_command:
         commands: show interface brief
       register: show_interface_brief
