@@ -6,7 +6,16 @@
     - name: NXOS_VERSION
       nxos_command:
         commands: show version
+      register: show_version
+    
+    - name: Mostrando version
+      debug:
+        var: show_version.stdout_lines
+        
     - name: NXOS_INTERFACES
       nxos_command:
         commands: show interface brief
-    
+      register: show_interface_brief
+    - name: Mostrando Interfaces
+      debug:
+        var: show_interface_brief.stdout_lines    
