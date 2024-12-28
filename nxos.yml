@@ -2,20 +2,21 @@
 - name: NXOS_PLAYBOOK
   connection: network_cli
   hosts: switches
-  tasks:
-    - name: Obtendo VERSION
-      nxos_command:
-        commands: show version
-      register: show_version
-    
-    - name: Mostrando version
-      debug:
-        var: show_version.stdout_lines
-        
+  tasks:        
     - name: Obtendo Interfaces brief
       nxos_command:
         commands: show interface brief
       register: show_interface_brief
     - name: Mostrando Interfaces
       debug:
-        var: show_interface_brief.stdout_lines    
+        var: show_interface_brief.stdout_lines
+
+
+    - name: Obtendo running interfaces
+      nxos_command:
+        commands: show running-config | section interface
+      register: show_running_section_interface
+    - name: Mostrando running interfaces
+      debug:
+        var: show_running_section_interface.stdout_lines    
+
