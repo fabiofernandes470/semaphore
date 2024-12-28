@@ -11,12 +11,27 @@
       debug:
         var: show_interface_brief.stdout_lines
 
-
     - name: Obtendo running interfaces
       nxos_command:
         commands: show running-config | section interface
       register: show_running_section_interface
     - name: Mostrando running interfaces
       debug:
-        var: show_running_section_interface.stdout_lines    
+        var: show_running_section_interface.stdout_lines
+
+    - name: Obtendo interfaces up
+      nxos_command:
+        commands: show interface status up
+      register: show_interface_status_up
+    - name: Mostrando interfaces up
+      debug:
+        var: show_interface_status_up.stdout_lines
+
+    - name: Obtendo interfaces down
+      nxos_command:
+        commands: show interface status down
+      register: show_interface_status_down
+    - name: Mostrando interfaces down
+      debug:
+        var: show_interface_status_down.stdout_lines
 
