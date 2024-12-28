@@ -1,5 +1,6 @@
 - name: "Demonstrate connecting to switches"
-  hosts: switches
+  hosts: all
+  connection: ansible.netcommon.network_cli
   gather_facts: no
       
   tasks:
