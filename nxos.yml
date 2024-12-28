@@ -1,7 +1,7 @@
 - name: "Demonstrate connecting to switches"
   hosts: switches
   connection: ansible.netcommon.network_cli
-  gather_facts: no
+  gather_facts: false
       
   tasks:
     - name: Teste de conexão
@@ -11,4 +11,4 @@
 
     - name: Exibir versão do sistema
       debug:
-        msg: "{{ nxos_version.stdout }}"
+        var: nxos_version.stdout
