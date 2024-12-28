@@ -1,6 +1,6 @@
 ---
 - name: RouterOS test with network_cli connection
-  hosts: switches
+  hosts: sw
   gather_facts: false
   tasks:
 
