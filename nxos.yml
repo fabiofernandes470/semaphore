@@ -4,9 +4,17 @@
   gather_facts: false
 
   tasks:
-    - name: show version
+    - name: run multiple commands on remote nodes
       cisco.nxos.nxos_command:
-        commands: show version
-      register: output
+        commands:
+          - show version
+          - show interfaces
 
-    -  debug: var=output.stdout_lines
+    - name: run multiple commands and evaluate the output
+      cisco.nxos.nxos_command:
+        commands:
+          - show version
+          - show interfaces
+        wait_for:
+          - result[0] contains Cisco
+          - result[1] contains loopback0
