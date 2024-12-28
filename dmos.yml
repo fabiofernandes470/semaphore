@@ -1,0 +1,11 @@
+---
+
+- hosts: dmos
+  gather_facts: no
+  collections:
+    - datacom.dmos
+  tasks:
+    - dmos_command:
+        commands:
+          - show running-config interface l3
+          - show oam twamp sender
