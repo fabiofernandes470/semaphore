@@ -1,9 +1,15 @@
----
-- name: RouterOS test with network_cli connection
-  hosts: sw
-  gather_facts: false
-  tasks:
+- name: "Demonstrate connecting to switches"
+  hosts: switches
+  gather_facts: no
 
-  - name: run show version and check to see if output contains Cisco
-    cisco.nxos.nxos_command:
-     commands: show version
+  tasks:
+    ###
+    # Collect data
+    #
+    - name: Gather facts (nxos)
+      arista.eos.eos_facts:
+      when: ansible_network_os == 'cisco.nxos.nxos'
+
+    - name: Gather facts (ios)
+      cisco.ios.ios_facts:
+      when: ansible_network_os == 'cisco.ios.ios'
