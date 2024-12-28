@@ -1,6 +1,7 @@
 - name: "Demonstrate connecting to switches"
   hosts: switches
   connection: ansible.netcommon.network_cli
+  remote_user: fabio
   gather_facts: false
       
   tasks:
