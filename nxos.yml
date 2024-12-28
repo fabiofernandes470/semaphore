@@ -3,6 +3,10 @@
   connection: network_cli
   hosts: switches
   tasks:
-    - name: NXOS_TEST
+    - name: NXOS_VERSION
       nxos_command:
         commands: show version
+    - name: NXOS_INTERFACES
+      nxos_command:
+        commands: show interface brief
+    
