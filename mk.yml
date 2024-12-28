@@ -4,19 +4,29 @@
   gather_facts: false
   tasks:
 
-  - name: Gather system resources
+  - name: Obtendo system resources
     community.routeros.command:
       commands:
         - /system resource print
     register: system_resource_print
 
-  - name: Show system resources
+  - name: Mostrando system resources
     debug:
       var: system_resource_print.stdout_lines
+  
+  - name: Obtendo ip address
+    community.routeros.command:
+      commands:
+        - /ip address print
+    register: ip_address_print
 
-  - name: Gather facts
+  - name: Mostrando ip address
+    debug:
+      var: ip_address_print.stdout_lines
+
+  - name: Obtendo Fatos
     community.routeros.facts:
 
-  - name: Show a fact
+  - name: Mostranndo um Fato
     debug:
       msg: "First IP address: {{ ansible_net_all_ipv4_addresses[0] }}"
